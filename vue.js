@@ -1,4 +1,7 @@
+console.assert(typeof Vue !== 'undefined');
 new Vue({
-      template: '<p>{{msg}}</p>',
-      data: {msg: 'seruhio ramos'}
-    }).$mount('#app')
+  el: '#app',
+  data: {
+    message: 'こんにちは！'
+  }
+});
