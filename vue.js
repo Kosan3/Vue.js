@@ -10,3 +10,4 @@ var vm = new Vue({
     items: items
   }
 })
+console.log(vm.items)
