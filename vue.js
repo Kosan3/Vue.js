@@ -1,10 +1,10 @@
 let items = [
   {
-    name: '鉛筆', price: 300, quantity: 1
+    name: '鉛筆', price: 300, quantity: 0
   }, {
-    name: 'ノート', price: 400, quantity: 1
+    name: 'ノート', price: 400, quantity: 0
   }, {
-    name: '消しゴム', price: 500, quantity: 1
+    name: '消しゴム', price: 500, quantity: 0
   }
 ]
 
@@ -15,7 +15,6 @@ let vm = new Vue({
   },
   filters: {
     numberWithDelimiter: function(value) {
-      console.log(!value);
       if (!value) {
         return '0';
       }
@@ -32,7 +31,13 @@ let vm = new Vue({
       return Math.floor(this.totalPrice * 1.1);
     },
     canBuy: function() {
-      return this.totalPrice <= 2000;
+      return this.totalPrice >= 1000;
+    },
+    errorMessageStyle: function() {
+      return {
+        border: this.canBuy ? '' : '1px solid red',
+        color: this.canBuy ? '' : 'red'
+      }
     }
   }
 })

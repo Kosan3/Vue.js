@@ -7,12 +7,19 @@
 </head>
 <body>
   <div id="app">
-    <p>{{ items[0].name }}: {{ items[0].price }} x {{ items[0].quantity }}</p>
-    <p>小計: {{ totalPrice | numberWithDelimiter }}円</p>
-    <p>合計(税込み): {{ totalPriceWithTax | numberWithDelimiter }}円</p>
-    <p v-show="canBuy">
-      税抜き{{ 1000 | numberWithDelimiter }}円以上からご購入いただけます。
-    </p>
+    <div :style="errorMessageStyle">
+      <ul>
+        <li v-for="item in items" :name='item.name'>
+          {{ item.name }}  {{ item.price }}円 <input type="number" v-model="item.quantity" min="0" max="10">
+        </li>
+      </ul>
+      <p>{{ items[0].name }}: {{ items[0].price }} x {{ items[0].quantity }}</p>
+      <p>小計: {{ totalPrice | numberWithDelimiter }}円</p>
+      <p>合計(税込み): {{ totalPriceWithTax | numberWithDelimiter }}円</p>
+      <p v-show="!canBuy">
+        税抜き{{ 1000 | numberWithDelimiter }}円以上からご購入いただけます。
+      </p>
+    </div>
   </div>
 
   <script src="vue.js"></script>
