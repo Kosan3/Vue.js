@@ -195,6 +195,29 @@ var Login = {
   }
 }
 
+var User = {
+  template:
+    '<div class="user>' +
+      '<h2>ユーザーIDは{{$route.params.userId}}です。</h2>' +
+      '<router-link :to="\'/user/\' + $route.params.userId + \'/profile\'">ユーザーのプロフィールページを見る</router-link>' +
+      '<router-link :to="\'/user/\' + $route.params.userId + \'/posts\'">ユーザーの投稿ページを見る</router-link>' +
+      '<router-view></router-view>' +
+    '</div>'
+}
+
+var UserProfile = {
+  template:
+    '<div class="user-profile">' +
+      '<h3>こちらのユーザーは{{ $route.params.userId }}のプロフィールページです。</h3>' +
+    '</div>'
+}
+
+var UserPosts = {
+  template:
+    '<div class="user-posts">' +
+      '<h3>こちらのユーザーは{{ $route.params.userId }}の投稿ページです。</h3>' +
+    '</div>'
+}
 
 
 
