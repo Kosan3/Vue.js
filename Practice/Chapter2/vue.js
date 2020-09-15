@@ -1,14 +1,15 @@
 new Vue({
   el: '#app',
   data: {
-    name: ''
+    name: '',
+    upperName: ''
   },
   created: function() {
-    this.delayFunc = _.debounce(this.getUpper, 2000);
+    this.delay = _.debounce(this.getUpper, 2000);
   },
-  computed: {
-    upperName: function() {
-      return this.name.toUpperCase();
+  watch: {
+    name: function(newValue, oldValue) {
+      this.delay();
     }
   },
   methods: {
