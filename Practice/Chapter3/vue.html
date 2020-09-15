@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter3</title>
+  <link rel="stylesheet" href="vue.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <form>
+      <label for="dog">いぬ</label>
+      <input type="radio" id="dog" value="いぬ" v-model="pet">
+      <br>
+      <label for="cat">ねこ</label>
+      <input type="radio" id="cat" value="ねこ" v-model="pet">
+      <br>
+      <label for="other">その他</label>
+      <input type="radio" id="other" value="その他" v-model="pet">
+    </form>
+    <p>ペット:{{pet}}</p>
+  </div>
+
+
+
+  <script src="vue.js"></script>
+</body>
+</html>

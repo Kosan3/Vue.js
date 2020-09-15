@@ -1,20 +1,11 @@
 new Vue({
   el: '#app',
   data: {
-    name: '',
-    upperName: ''
-  },
-  created: function() {
-    this.delay = _.debounce(this.getUpper, 2000);
-  },
-  watch: {
-    name: function(newValue, oldValue) {
-      this.delay();
-    }
+    message: ''
   },
   methods: {
-    getUpper: function() {
-      this.upperName = this.name.toUpperCase();
+    onclick: function(hoge) {
+      this.message = new Date().toLocaleString() + hoge;
     }
   }
 });
