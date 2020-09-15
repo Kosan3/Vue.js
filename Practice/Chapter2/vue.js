@@ -1,31 +1,19 @@
-let app = new Vue({
+new Vue({
   el: '#app',
-  beforeCreate: function() {
-    console.log('beforeCreate...');
+  data: {
+    name: ''
   },
   created: function() {
-    console.log('created...');
+    this.delayFunc = _.debounce(this.getUpper, 2000);
   },
-  beforeMount: function() {
-    console.log('beforeMount...');
+  computed: {
+    upperName: function() {
+      return this.name.toUpperCase();
+    }
   },
-  mounted: function() {
-    console.log('mounted...');
-  },
-  beforeUpdate: function() {
-    console.log('beforeUpdate...');
-  },
-  updated: function() {
-    console.log('updated...');
-  },
-  beforeDestroy: function() {
-    console.log('beforeDestroy...');
-  },
-  destroyed: function() {
-    console.log('destroyed...');
+  methods: {
+    getUpper: function() {
+      this.upperName = this.name.toUpperCase();
+    }
   }
 });
-
-setTimeout(function() {
-  app.$destroy();
-}, 3000)
