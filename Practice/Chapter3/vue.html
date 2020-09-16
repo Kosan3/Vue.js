@@ -9,9 +9,12 @@
 <body>
   <div id="app">
     <form>
-      <input ref="upfile" type="file" @change="onchange">
+      <label for="email">メールアドレス:</label>
+      <textarea id="email" @input="inputMails" :value="isValue"></textarea>
     </form>
-    <div>{{message}}</div>
+    <div v-for="mail in mails">
+      {{mail}}
+    </div>
   </div>
 
 

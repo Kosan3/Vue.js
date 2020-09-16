@@ -1,15 +1,16 @@
 new Vue({
   el: '#app',
   data: {
-    message: ''
+    mails: []
+  },
+  computed: {
+    isValue: function() {
+      return this.mails.join(';')
+    }
   },
   methods: {
-    onchange: function() {
-      let that = this;
-      let fl = this.$refs.upfile.files[0];
-      let data = new FormData();
-      data.append('upfile', fl, fl.name);
-      fetch('upload.php')
+    inputMails: function(e) {
+      this.mails = e.target.value.split(';')
     }
   }
-})
+});
