@@ -1,34 +1,25 @@
+Vue.config.devtools = true;
+
 new Vue({
   el: '#app',
   data: {
-    books: [
-      {
-      isbn: '978-4-7981-5757-3',
-      title: 'JavaScript逆引きレシピ',
-      price: 2800
-      },
-      {
-        isbn: '978-4-8399-6644-7',
-        title: 'たのしいラズパイ電子工作ブック',
-        price: 1900
-      },
-      {
-        isbn: '978-4-7741-9763-0',
-        title: '3ステップでしっかり学ぶ Python入門',
-        price: 2480
-      },
-      {
-        isbn: '978-4-7981-5382-7',
-        title: '独習C# 新版',
-        price: 3600
-      }
-    ]
+    pos: {
+      left: 0,
+      top: 0
+    },
+    show: false
   },
-  computed: {
-    expensiveBooks: function() {
-      return this.books.filter(function(book) {
-        return book.price >= 2500;
-      })
+  methods: {
+    onleftclick: function() {
+      this.show = false;
+    },
+    onrightclick: function(e) {
+      console.log(e.pageY);
+      this.pos = {
+        top: e.pageY + 'px',
+        left: e.pageX + 'px'
+      };
+      this.show = true;
     }
   }
 });
