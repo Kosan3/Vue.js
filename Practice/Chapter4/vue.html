@@ -9,9 +9,7 @@
 </head>
 <body>
   <div id="app">
-    <my-book v-slot="{book}">
-      {{book.title}}  ({{book.price}}円)
-    </my-book>
+    <component :is="currentBanner" />
   </div>
 
   <script src="vue.js"></script>
