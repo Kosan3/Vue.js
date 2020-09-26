@@ -1,27 +1,14 @@
 let app = new Vue({
   el: '#app',
-  beforeCreate: function() {
-    console.log('beforeCreate...');
+  data: {
+    author: {
+      name: '山田'
+    }
   },
   created: function() {
-    console.log('created...');
-  },
-  beforeMount: function() {
-    console.log('beforeMount...');
-  },
-  mounted: function() {
-    console.log('mounted...');
-  },
-  beforeUpdate: function() {
-    console.log('beforeUpdate...');
-  },
-  updated: function() {
-    console.log('updated...');
-  },
-  beforeDestroy: function() {
-    console.log('beforeDestroy...');
-  },
-  destroyed: function() {
-    console.log('destroyed...');
+    let that = this;
+    this.timer = setInterval(function() {
+      Vue.set(that.author, 'company', 'Wingsプロジェクト');
+    }, 3000);
   }
 });
