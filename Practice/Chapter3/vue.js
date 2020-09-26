@@ -1,25 +1,28 @@
-Vue.config.devtools = true;
-
 new Vue({
   el: '#app',
   data: {
-    pos: {
-      left: 0,
-      top: 0
-    },
-    show: false
+    current: new Date(),
+    flag: true
+  },
+  created: function() {
+    let that = this;
+    this.timer = setInterval(function() {
+      that.current = new Date();
+    }, 1000)
   },
   methods: {
-    onleftclick: function() {
-      this.show = false;
-    },
-    onrightclick: function(e) {
-      console.log(e.pageY);
-      this.pos = {
-        top: e.pageY + 'px',
-        left: e.pageX + 'px'
-      };
-      this.show = true;
+    onclick: function() {
+      if (this.flag) {
+        clearInterval(this.timer);
+        this.flag = false;
+      } else {
+        console.log('aaaa')
+        let that = this
+        this.timer = setInterval(function() {
+          that.current = new Date();
+        }, 1000);
+        this.flag = true;
+      }
     }
   }
-});
+})
