@@ -1,14 +1,26 @@
 new Vue({
   el: '#app',
   data: {
-    path: 'http://www.web-deli.com/image/linkbanner_l.gif'
+    books: [
+      {
+        title: 'Javascript',
+        price: 1200
+      },
+      {
+        title: 'Ruby',
+        price: 900
+      },
+      {
+        title: 'Java',
+        price: 1300
+      }
+    ]
   },
-  methods: {
-    onmouseover: function() {
-      this.path = 'http://www.web-deli.com/image/home_chara.gif';
-    },
-    onmouseout: function() {
-      this.path = 'http://www.web-deli.com/image/linkbanner_l.gif';
+  computed: {
+    expensiveBooks: function() {
+      return this.books.filter(function(book) {
+        return book.price < 1000;
+      })
     }
   }
 })

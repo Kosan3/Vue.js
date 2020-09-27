@@ -9,7 +9,13 @@
 </head>
 <body>
   <div id="app">
-    <img :src="path" alt="ロゴ画像" @mouseover="onmouseover" @mouseout="onmouseout">
+    <table class="table">
+      <th>名前</th><th>価格</th>
+      <tr v-for="book in expensiveBooks">
+        <td>{{book.title}}</td>
+        <td>{{book.price}}</td>
+      </tr>
+    </table>
   </div>
 
   <script src="vue.js"></script>
