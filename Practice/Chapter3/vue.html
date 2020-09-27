@@ -9,13 +9,10 @@
 </head>
 <body>
   <div id="app">
-    <table class="table">
-      <th>名前</th><th>価格</th>
-      <tr v-for="book in expensiveBooks">
-        <td>{{book.title}}</td>
-        <td>{{book.price}}</td>
-      </tr>
-    </table>
+    <button @click="onclick">クリック</button>
+    <ul>
+      <li v-for="list in lists" :key="list">{{list}}</li>
+    </ul>
   </div>
 
   <script src="vue.js"></script>
