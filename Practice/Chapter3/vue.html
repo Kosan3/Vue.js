@@ -9,10 +9,8 @@
 </head>
 <body>
   <div id="app">
-    <button @click="onclick">クリック</button>
-    <ul>
-      <li v-for="list in lists" :key="list">{{list}}</li>
-    </ul>
+    <div id="main" @contextmenu.prevent>
+    </div>
   </div>
 
   <script src="vue.js"></script>
