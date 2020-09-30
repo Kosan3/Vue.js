@@ -9,7 +9,10 @@
 </head>
 <body>
   <div id="app">
-    <my-count></my-count>
+    <p>現在値: {{current}}</p>
+    <my-counter step="1" @plus="onplus"></my-counter>
+    <my-counter step="2" @plus="onplus"></my-counter>
+    <my-counter step="-1" @plus="onplus"></my-counter>
   </div>
 
   <script src="vue.js"></script>
