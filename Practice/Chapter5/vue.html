@@ -9,7 +9,16 @@
 </head>
 <body>
   <div id="app">
-    <component :is="currentBanner"/>
+    <div id="container">
+      <ul>
+        <li v-for="tab in tabNames">
+          <a href="#" @click.prevent="onclick(tab)">{{tabs[tab]}}</a>
+        </li>
+      </ul>
+      <keep-alive>
+        <component :is="currentTab"></component>
+      </keep-alive>
+    </div>
   </div>
 
   <script src="vue.js"></script>
